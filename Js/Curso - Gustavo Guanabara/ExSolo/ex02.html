@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular</title>
+</head>
+<body>
+
+    <div id="caixa">
+
+        <input type="text" name="n1" id="num1" placeholder="Digite o primeiro número" required>
+        <input type="text" name="n2" id="num2" placeholder="Digite o segundo número" required><br>
+        <input type="radio" id="soma" name="radOp">Soma
+        <input type="radio" id="sub" name="radOp">Subtração
+        <input type="radio" id="mult" name="radOp">Multiplicação
+        <input type="radio" id="div" name="radOp">Divisão<br><br>
+        <input type="button" name="btn" value="Calcular" onclick="calcular()">
+
+        <p id="para"></p>
+
+    </div>
+
+    <script>
+
+        function calcular() {
+
+            var n1 = Number(document.getElementById('num1').value)
+            var n2 = Number(document.getElementById('num2').value)
+            var operacao = document.getElementsByName('radOp')
+            var para = document.getElementById('para')
+
+            if(operacao[0].checked){
+
+                var soma = n1 + n2
+                para.innerHTML = `O resultado é igual a ${soma}` 
+
+            }
+
+            else if(operacao[1].checked) {
+                
+                var sub = n1 - n2 
+                para.innerHTML = `O resultado é igual a ${sub}`
+
+            } 
+
+            
+
+            else if (operacao[2].checked) {
+
+                var mult = n1 * n2 
+                para.innerHTML = `O resultado é igual a ${mult}`
+
+            }
+
+            else if(operacao[3].checked && n1 === 0 && n2 === 0) {
+
+                var div = n1 / n2 
+                para.innerHTML = `O resultado é igual a ${div}` 
+            } 
+
+            else {
+
+                para.innerHTML = 'Reveja as suas escolhas'
+            }
+
+        }
+
+    </script>
+</body>
+</html>
